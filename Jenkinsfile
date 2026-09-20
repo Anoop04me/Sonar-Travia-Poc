@@ -10,7 +10,7 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                git branch: 'master', url: 'https://github.com/Anoop04me/Sonar-Travia-Poc.git'
+                git branch: 'master', url: 'https://github.com/manjukolkar/Sonar-Travia-Poc.git'
             }
         }
 
@@ -18,15 +18,13 @@ pipeline {
             steps {
                 withSonarQubeEnv("${SONARQUBE}") {
                     sh '''
-                    sh """
                     docker run --rm \
                       -e SONAR_HOST_URL=$SONAR_HOST_URL \
                       -e SONAR_TOKEN=$SONAR_AUTH_TOKEN \
-                      -v $WORKSPACE:/usr/src/sonar-scanner.properties \
+                      -v $WORKSPACE:/usr/src \
                       sonarsource/sonar-scanner-cli \
                       -Dsonar.projectKey=devsecops-landing-page \
                       -Dsonar.sources=app
-"""
                     '''
                 }
             }
