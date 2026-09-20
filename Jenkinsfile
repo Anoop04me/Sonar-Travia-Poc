@@ -22,7 +22,7 @@ pipeline {
                     docker run --rm \
                       -e SONAR_HOST_URL=$SONAR_HOST_URL \
                       -e SONAR_TOKEN=$SONAR_AUTH_TOKEN \
-                      -v $WORKSPACE:/usr/src \
+                      -v $WORKSPACE:/opt/sonar-scanner/conf/sonar-scanner.properties \
                       sonarsource/sonar-scanner-cli \
                       -Dsonar.projectKey=devsecops-landing-page \
                       -Dsonar.sources=app
