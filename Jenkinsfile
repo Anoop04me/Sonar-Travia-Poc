@@ -10,7 +10,7 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                git branch: 'master', url: 'https://github.com/manjukolkar/Sonar-Travia-Poc.git'
+                git branch: 'master', url: 'https://github.com/Anoop04me/Sonar-Travia-Poc.git'
             }
         }
 
